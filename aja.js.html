@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script>
+        	// 若需要支援跨瀏覽器，還需要額外檢驗
+			if (typeof XMLHttpRequest != 'undefined') {
+			    // 一般使用 XMLHttpRequest 物件
+			    const xhr = new XMLHttpRequest();
+			    const REQUEST_URL = 'http://crazyms.com/test/test16.php';
+
+			    // 監聽是否完成
+			    xhr.onreadystatechange = function() {
+			        if (xhr.readyState === XMLHttpRequest.DONE) {
+			            console.log(xhr.responseText);
+			            document.getElementById('test').innerHTML = xhr.responseText
+			        }
+			    }
+			    
+			    xhr.open('GET', REQUEST_URL);
+			    xhr.send();
+			}
+        </script>    
+    </head>
+    <body>
+    	<div id="test"> </div>
+    </body>
+</html>
