@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<script>
+	window.onload = function(){
+		function doubleLink() {
+			window.open("https://www.google.com"); 
+			window.open("https://www.google.com");
+		}	
+
+		var a = document.getElementsByTagName('a')[0];
+		a.addEventListener("click",function(){
+			doubleLink();	
+		},false)
+	}
+	
+</script>
+<body>
+	<a href="#";">點點看</a>	
+</body>
+</html>
