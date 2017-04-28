@@ -1,0 +1,36 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>禁止輸入</title>
+        <style type="text/css" media="screen">
+        </style>
+        <script type="text/javascript">
+            window.onload = function(){
+              var _inhibitingInput = document.getElementById('inhibitingInput');
+              _inhibitingInput.onfocus = function(){
+                console.log(this);
+                this.blur();
+              }
+
+              var noText = function(){
+                _inhibitingInput2.value = "";
+              }
+              var _inhibitingInput2 = document.getElementById('inhibitingInput2');
+              _inhibitingInput2.onkeyup = _inhibitingInput2.onblur = noText
+            }
+        </script>
+    </head>
+
+    <body>
+        example1
+        <div>Javascript 控制
+            <input type="text" value="禁止輸入" id="inhibitingInput" >
+        </div>
+        example2
+        <div>Javascript 控制
+            <input type="text" id="inhibitingInput2" >
+        </div>
+    </body>
+  
+</html>
