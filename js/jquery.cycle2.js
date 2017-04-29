@@ -7,9 +7,7 @@
 /* Cycle2 core engine */
 ;(function($) {
 "use strict";
-
 var version = '2.1.6';
-
 $.fn.cycle = function( options ) {
     // fix mistakes with the ready state
     var o;

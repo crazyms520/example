@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>頁面中滑鼠游標懸停提示</title>
+        <style type="text/css" media="screen">
+        	table{
+        		width: 200px;
+        		border: 1px solid red;
+        	}
+        	td{
+        		border: 1px solid red;
+        		height: 50px;
+        		text-align: center;
+        		font-style: 10pt;
+        		padding: 2px;
+        	}
+        	#tooltipMsg{
+        		position: absolute;
+        		border: 1px solid #ccc;
+        		display: none;
+        		color: #ccc;
+        		font-size: 12px;
+        	}
+        </style>
+        <script type="text/javascript">
+        	window.onload = function(){
+        		console.log(window.screen);
+				var table        = document.getElementsByTagName("table");
+				var tip        = document.getElementsByTagName("tooltipMsg");
+				table[0].onmouseover = function(e){
+					if(e.target.nodeName != 'TABLE')
+					{
+						tooltipMsg.innerText = 'this is '+ e.target.innerText;
+						tooltipMsg.style.display = 'block';
+					}
+	        	}				        	
+
+	        	table[0].onmouseout = function(e){
+					if(e.target.nodeName != 'TABLE')
+					{
+						tooltipMsg.style.display = 'none';
+					}
+	        	}				        	
+        	}
+        	
+        	
+        </script>
+    </head>
+
+	<body>
+		<h2>頁面中滑鼠游標懸停提示</h2>
+		<table id="tooltip">
+			<tr data-tooltip="第1行提示" >
+				<td>1</td>
+				<td>2</td>
+			</tr>
+			<tr data-tooltip="第2行提示">
+				<td>3</td>
+				<td>4</td>
+			</tr>
+		</table>
+		<div id="tooltipMsg">我是提示資訊</div>
+	</body>
+</html>
