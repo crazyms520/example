@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var checkbox1 = document.getElementsByTagName('input')[0];
+			var yes       = document.getElementById('yes'); 		
+
+			checkbox1.onclick = function(){		
+				yes.style.display = yes.style.display == 'none'?'':'none';
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	 點我點我<input type="checkbox"/>
+	<div id="yes" style="display:none">這裏可放任何東西</div>
+</body>
+</html>
