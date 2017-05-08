@@ -5,6 +5,7 @@ function check_borwer(){
     var isOpera   = navigator.userAgent.search("Opera") > -1;
     //Google && safari 是同一個
     var isSafari  = navigator.userAgent.search("Safari") > -1;
+    console.log(isSafari);
     if (isIE7) {
         browser = 'IE7';
     }
