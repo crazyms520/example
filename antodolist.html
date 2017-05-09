@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>邊學AngularJS邊做Todo List (2)</title>
+    
+</head>
+<body ng-controller="TodoCtrl">
+    <h1>ToDo List</h1>
+    <form ng-submit="addItem()">
+        <input type="text" name="newItem" ng-model="newItem" />
+        <input type="submit" id="submit" value="新增" />
+    </form>
+    <ul>
+        <li ng-repeat="item in todoList2">{{item.label}}</li>
+    </ul>
+    <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    <script type="text/javascript" src="antodolist.js"></script>
+</body>
+</html>
