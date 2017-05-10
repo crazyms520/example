@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>邊學AngularJS邊做Todo List (3)</title>
+</head>
+<body ng-controller="TodoCtrlList">
+    <h1>ToDo List</h1>
+    <form ng-submit="addItem()">
+        <input type="text" name="newItem" ng-model="newItem" />
+        <input type="submit" id="submit" value="新增代辦事項" />
+    </form>
+    <ul id="todo">
+        <li ng-repeat="item in todoList | filter:{isFinish:false}">
+            <input type="checkbox" ng-click="removeItem(item)">
+            {{item.label}}
+        </li>
+    </ul>
+
+    <hr>
+
+    <h1>Finished</h1>
+    <ul id="finish">
+        <li ng-repeat="item in todoList | filter:{isFinish:true}">
+            {{item.label}}
+        </li>
+
+    </ul>
+    <!--<script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script>-->
+    <!--angular cdn-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+
+    <script type="text/javascript" src="js/controllers.js"></script>
+</body>
+</html>
