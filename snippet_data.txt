@@ -1,0 +1,30 @@
+for css
+"Print css basic": {
+		"prefix": "forcss",
+		"body": [
+			"/*****Reset*****/",
+			"/*移除元素裡的 margin 以及 padding",
+
+			"/*****Basic Elements*****/",
+			"/*定義基本元素的樣式: body, h1-h6, ul, ol, a, p, 等等*/",
+
+			"/*****Generic Classes*****/",
+			"/*定義像是邊欄的浮動，移除元素底部的 margin 間距等單純的樣式*/",
+
+			"/*****Basic Layout*****/",
+			"/*定義基本的模版: header, footer, 等等，元素可以幫助網站定義基本的圖層*/",
+
+			"/*****Header*****/",
+			"/*定義所有header的元素*/",
+
+			"/*****Content*****/",
+			"/*定義所有content的區塊內容*/",
+
+			"/*****Footer*****/",
+			"/*定義所有footer的元素*/",
+
+			"/*****Etc*****/",
+			"/*繼續一對一的定義其他部分*/"
+		],
+		"description": "print css basic element"
+	}
