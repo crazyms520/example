@@ -17,5 +17,4 @@ function TodoCtrlList($scope){
     $scope.save = function(item){
         delete item.editing;
     }
-    
 }
