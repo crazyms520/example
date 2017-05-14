@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 960px;
+        text-align: center;
+    }
+
+    .addBox {
+        background-color: coral;
+        border-radius: 3px;
+        margin-top: 20px;
+        padding: 20px;
+        *zoom: 1;
+    }
+
+    .addBox::after {
+        display: table;
+        content: '';
+        line-height: 0;
+        clear: both;
+    }
+
+    .addBox>.left {
+        display: inline-block;
+        float: left;
+        width: calc(100% - 200px);
+    }
+
+    .addBox>.right {
+        display: inline-block;
+        float: right;
+        width: 200px;
+    }
+
+    .addBox>.left>input {
+        border: 0;
+        border-radius: 3px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .addBox>.right>button {
+        background-color: rgba(152, 152, 152, 1.00);
+        box-shadow: 1px 1px 1px 1px outset;
+        border: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        padding: 10px;
+        width: 100px;
+    }
+
+    .addBox>.right>button:active {
+        box-shadow: 1px 1px 1px 1px inset;
+    }
+
+    table {
+        border: 1px solid black;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    ul>li:nth-child(odd) {
+        
+        background-color: rgba(218, 218, 218, 1.00);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="addBox">
+            <div class="left">
+                <input type="text" placeholder="代辦事項">
+            </div>
+            <div class="right">
+                <button>Add</button>
+            </div>
+        </div>
+        <div class="list">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
