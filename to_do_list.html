@@ -1,187 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<style>
-    .container {
-        margin: 0 auto;
-        width: 100%;
-        max-width: 960px;
-        text-align: center;
-    }
-
-    .addBox {
-        background-color: coral;
-        border-radius: 3px;
-        margin-top: 20px;
-        padding: 20px;
-        *zoom: 1;
-    }
-
-    .addBox::after {
-        display: table;
-        content: '';
-        line-height: 0;
-        clear: both;
-    }
-
-    .addBox>.left {
-        display: inline-block;
-        float: left;
-        width: calc(100% - 200px);
-    }
-
-    .addBox>.right {
-        display: inline-block;
-        float: right;
-        width: 200px;
-    }
-
-    .addBox>.left>input {
-        border: 0;
-        border-radius: 3px;
-        padding: 10px;
-        width: 100%;
-    }
-
-    .addBox>.right>button {
-        background-color: rgba(152, 152, 152, 1.00);
-        box-shadow: 1px 1px 1px 1px outset;
-        border: 0;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        padding: 10px;
-        width: 100px;
-    }
-
-    .addBox>.right>button:active {
-        box-shadow: 1px 1px 1px 1px inset;
-    }
-
-    table {
-        border: 1px solid black;
-    }
-
-    ul {
-        padding: 0;
-        list-style: none;
-    }
-
-    ul>label>li:nth-child(odd) {
-        background-color: rgba(218, 218, 218, 1.00);
-    }
-
-    input[type="checkbox"] {
-        display: none;
-    }
-
-    input[type="checkbox"]:checked+label>li {
-        background-color: palevioletred;
-        text-decoration: line-through;
-    }
-
-    li:checked {
-        background-color: green;
-    }
-</style>
-
-<body>
-    <div class="container">
-        <div class="addBox">
-            <div class="left">
-                <input type="text" id="toDo" placeholder="代辦事項">
-            </div>
-            <div class="right">
-                <button id="send">Add</button>
-            </div>
-        </div>
-        <div class="list">
-
-            <ul id="list">
-
-            </ul>
-        </div>
-    </div>
-    <script>
-        window.onload = function () {
-            var list = ['123', '456'];
-
-            var send = document.getElementById('send');
-
-            //新增
-            var addLists = function () {
-                var lists = document.getElementById('list');
-                var toDo = document.getElementById('toDo').value;
-                if (toDo) {
-                    list.push(toDo)
-                }
-                lists.innerHTML = '';
-                var content = '';
-                for (var i = 0; i < list.length; i++) {
-                    content += '<input type="checkbox" id="' + i + '">';
-                    content += '<label for="' + i + '">';
-                    content += '<li>';
-                    content += list[i];
-                    content += '</li>';
-                    content += '</label>';
-                    // var li = document.createElement('li');
-                    // var text = document.createTextNode(list[i]);
-                    // li.appendChild(text);
-                    // lists.appendChild(li);
-                    lists.innerHTML = content;
-                }
-                document.getElementById('toDo').value = '';
-                var li = document.getElementsByTagName('li');
-                for (var i = 0; i < li.length; i++) {
-                    li[i].addEventListener('dblclick', delLists);
-                }
-            };
-
-            //刪除
-            var delLists = function () {
-                var lists = document.getElementById('list');
-                var toDo = document.getElementById('toDo').value;
-
-                var del = list.indexOf(this.innerHTML);
-
-                if (del !== -1) {
-                    list.splice(del, 1);
-                }
-                console.log(list.length)
-                // lists.innerHTML = '';
-                var content = '';
-
-                if (list.length <= 0) {
-                    lists.innerHTML = content;
-                    return false;
-                }
-                for (var i = 0; i < list.length; i++) {
-                    content += '<input type="checkbox" id="' + i + '">';
-                    content += '<label for="' + i + '">';
-                    content += '<li>';
-                    content += list[i];
-                    content += '</li>';
-                    content += '</label>';
-                    lists.innerHTML = content;
-                }
-                var lis = document.getElementsByTagName('li');
-                for (var i = 0; i < lis.length; i++) {
-
-                    lis[i].addEventListener('dblclick', delLists);
-                }
-            }
-
-            addLists();
-            send.addEventListener('click', addLists);
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 960px;
+            text-align: center;
         }
-    </script>
-</body>
 
+        .addBox {
+            background-color: coral;
+            border-radius: 3px;
+            margin-top: 20px;
+            padding: 20px;
+            *zoom: 1;
+        }
+
+        .addBox::after {
+            display: table;
+            content: '';
+            line-height: 0;
+            clear: both;
+        }
+
+        .addBox>.left {
+            display: inline-block;
+            float: left;
+            width: calc(100% - 200px);
+        }
+
+        .addBox>.right {
+            display: inline-block;
+            float: right;
+            width: 200px;
+        }
+
+        .addBox>.left>input {
+            border: 0;
+            border-radius: 3px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .addBox>.right>button {
+            background-color: rgba(152, 152, 152, 1.00);
+            box-shadow: 1px 1px 1px 1px outset;
+            border: 0;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            padding: 10px;
+            width: 100px;
+        }
+
+        .addBox>.right>button:active {
+            box-shadow: 1px 1px 1px 1px inset;
+        }
+
+        table {
+            border: 1px solid black;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul>label>li:nth-child(odd) {
+            background-color: rgba(218, 218, 218, 1.00);
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]:checked+label>li {
+            background-color: palevioletred;
+            text-decoration: line-through;
+        }
+
+        li:checked {
+            background-color: green;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="addBox">
+                <div class="left">
+                    <input type="text" id="toDo" placeholder="代辦事項">
+                </div>
+                <div class="right">
+                    <button id="send">Add</button>
+                </div>
+            </div>
+            <div class="list">
+
+                <ul id="list">
+
+                </ul>
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+                var list = ['123', '456'];
+
+                var send = document.getElementById('send');
+
+                //新增
+                var addLists = function () {
+                    var lists = document.getElementById('list');
+                    var toDo = document.getElementById('toDo').value;
+                    if (toDo) {
+                        list.push(toDo)
+                    }
+                    lists.innerHTML = '';
+                    var content = '';
+                    for (var i = 0; i < list.length; i++) {
+                        content += '<input type="checkbox" id="' + i + '">';
+                        content += '<label for="' + i + '">';
+                        content += '<li>';
+                        content += list[i];
+                        content += '</li>';
+                        content += '</label>';
+                        // var li = document.createElement('li');
+                        // var text = document.createTextNode(list[i]);
+                        // li.appendChild(text);
+                        // lists.appendChild(li);
+                        lists.innerHTML = content;
+                    }
+                    document.getElementById('toDo').value = '';
+                    var li = document.getElementsByTagName('li');
+                    for (var i = 0; i < li.length; i++) {
+                        li[i].addEventListener('dblclick', delLists);
+                    }
+                };
+
+                //刪除
+                var delLists = function () {
+                    var lists = document.getElementById('list');
+                    var toDo = document.getElementById('toDo').value;
+
+                    var del = list.indexOf(this.innerHTML);
+
+                    if (del !== -1) {
+                        list.splice(del, 1);
+                    }
+                    console.log(list.length)
+                    // lists.innerHTML = '';
+                    var content = '';
+
+                    if (list.length <= 0) {
+                        lists.innerHTML = content;
+                        return false;
+                    }
+                    for (var i = 0; i < list.length; i++) {
+                        content += '<input type="checkbox" id="' + i + '">';
+                        content += '<label for="' + i + '">';
+                        content += '<li>';
+                        content += list[i];
+                        content += '</li>';
+                        content += '</label>';
+                        lists.innerHTML = content;
+                    }
+                    var lis = document.getElementsByTagName('li');
+                    for (var i = 0; i < lis.length; i++) {
+
+                        lis[i].addEventListener('dblclick', delLists);
+                    }
+                }
+
+                addLists();
+                send.addEventListener('click', addLists);
+
+            }
+        </script>
+    </body>
 </html>
