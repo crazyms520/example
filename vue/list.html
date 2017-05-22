@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        
+        <title>ToDoList</title>
+    </head>
+    <style>
+        .container{
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            
+        }
+        .addBox{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            
+        }
+        .addBox .left{
+            flex: 3;            
+            padding-right: 10px;
+            width: 100%;
+        }
+        .addBox .left input {
+            border: 1px solid red;
+            border-radius: 5px;
+            font-size: 20px;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+        }
+        .addBox .right {
+            padding-left: 10px;            
+            width: 200px;
+        }
+        .addBox .right button{
+            background-color: transparent;
+            border: 1px solid red;
+            border-radius: 5px;
+            font-size: 20px;
+            outline: none;
+            padding: 5px 0;            
+            width: 80%;
+        }
+        .list{
+            /*width: 100%;*/
+        }
+        .list > span{
+            border-radius: 5px;
+            background-color: rgba(255, 0, 0, .5);
+            display: inline-block;
+            font-size: 20px;
+            padding: 5px 0 ;
+            text-align: center;
+            width: 100%;
+        }
+        #list{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        #list li{
+            padding: 5px 0;
+        }
+
+        #list li span{
+            padding-right: 10px;
+        }
+        
+
+    </style>
+    <body>
+        <div class="container" id="app">
+            <div class="addBox">
+                <div class="left">
+                    <input type="text" placeholder="代辦事項" v-model="value">
+                </div>
+                <div class="right">
+                    <button id="send" v-on:click="add">Add</button>
+                </div>
+            </div>
+            <div class="list">
+                <span v-if="lists|lists.length > 0">列表</span>
+                <ul id="list">
+                    <li class="momo"  v-for="(list, index) in lists" v-on:click="del">
+                        <input v-bind:id="index" type="checkbox" name="do" v-bind:value="index">
+                        {{list.todo}} 
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="js/list.js"></script>
+    </body>
+</html>
