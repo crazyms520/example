@@ -10,13 +10,18 @@
 
     <script type="text/javascript">
       window.onload = function(){
-        alert('hello world')
+        
       }
     </script>
   </head>
   <body>
-    <?php 
-      echo $before_day = date('Y-m-d',strtotime('2017-05-01') - 3 day));
-    ;?>
+    <h1 id="title1" value="1">1</h1>
+    <h1 id="title2">2</h1>
+    <h1 id="title3">3</h1>
+     <script type="text/javascript">
+      var title1 = document.getElementById('title1');
+      console.log(title1)
+      console.log(title1.value)
+    </script>
   </body>
 </html>
