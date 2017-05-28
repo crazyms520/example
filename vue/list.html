@@ -68,6 +68,7 @@
         }
         #list li{
             padding: 5px 0;
+            padding-left: 10px;
         }
 
         #list li span{
@@ -89,9 +90,9 @@
             <div class="list">
                 <span v-if="lists|lists.length > 0">列表</span>
                 <ul id="list">
-                    <li class="momo"  v-for="(list, index) in lists" v-on:click="del">
-                        <input v-bind:id="index" type="checkbox" name="do" v-bind:value="index">
-                        {{list.todo}} 
+                    <li class="memo" v-for="(list, index) in lists" v-on:click="del">
+                        <input v-show:false v-bind:id="index" type="checkbox" name="do" v-bind:value="index">
+                        {{list.todo}}
                     </li>
                 </ul>
             </div>

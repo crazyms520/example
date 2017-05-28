@@ -10,16 +10,17 @@ var app = new Vue({
     },
     methods:{
         add:function(){
-            this.lists.push(this.value);
+            var l = this.lists.length;
+            this.lists[l] = {todo:this.value};
             this.value = '';
         },
         del:function(e){
-            console.log(e);
-            // this.lists.splice(del, 1)
+            //因為是li呼叫
+            var del = e.target.firstElementChild.defaultValue;
+            this.lists.splice(del, 1);
             // var val = e.target.innerText;
             // var del = this.lists.indexOf(val)
             // del !== -1 ? this.lists.splice(del, 1) : console.log(1);
-            
         }
     },
 });
