@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-        
-</body>
-</html>
+window.onload = function(){
+    var content ;
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = test;
+    xhr.open('get','switch.html',true);
+    xhr.send(null);
+}
+
+function test(){
+    //  console.log(xhr.readyState);
+     alert(xhr.readyState);
+     if( xhr.readyState == 4){
+         content = xhr.responseText;
+         alert(content);
+     }
+}
